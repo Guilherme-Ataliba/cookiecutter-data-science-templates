@@ -18,7 +18,11 @@ from ccds.hook_utils.dependencies import (
 #
 #  TEMPLATIZED VARIABLES FILLED IN BY COOKIECUTTER
 #
+# Deafault packages 
 packages_to_install = copy(packages)
+
+# Custom Packages
+packages_to_install += ["seaborn"]
 
 # {% if cookiecutter.dataset_storage.s3 %}
 packages_to_install += ["awscli"]

@@ -3,7 +3,6 @@ import tomlkit
 packages = [
     "pip",
     "python-dotenv",
-    "seaborn",
 ]
 
 flake8_black_isort = [
@@ -21,7 +20,6 @@ basic = [
     "notebook",
     "numpy",
     "pandas",
-    "seaborn"
 ]
 
 
