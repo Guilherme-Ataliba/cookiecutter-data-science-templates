@@ -22,7 +22,10 @@ from ccds.hook_utils.dependencies import (
 packages_to_install = copy(packages)
 
 # Custom Packages
-packages_to_install += ["seaborn"]
+packages_to_install += [
+    "seaborn",
+    "sympy",
+]
 
 # {% if cookiecutter.dataset_storage.s3 %}
 packages_to_install += ["awscli"]
