@@ -3,6 +3,7 @@ import tomlkit
 packages = [
     "pip",
     "python-dotenv",
+    "seaborn",
 ]
 
 flake8_black_isort = [
