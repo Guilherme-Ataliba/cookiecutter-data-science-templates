@@ -4,6 +4,20 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = {{ cookiecutter.module_name|tojson }}
+
+dependencies = [
+    "ipython>=8.10",
+    "jupyterlab>=3.0",
+    "notebook",
+    "sphinx-autobuild>=2024.10.3",
+    "sphinx-autodoc-typehints>=1.20.2",
+    "nbsphinx>=0.8.1",
+    "myst-parser>=2.0.0",
+    "sphinx-copybutton>=0.5.2",
+    "sphinx-rtd-theme>=2.0.0",
+    "sphinxcontrib-mermaid>=1.0.0",
+]
+
 version = "0.0.1"
 description = {{ cookiecutter.description|tojson }}
 authors = [
