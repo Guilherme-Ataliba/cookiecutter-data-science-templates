@@ -340,6 +340,13 @@
                     "description": "Include `docs` folder and `mkdocs` tools.",
                     "more_information": "[Docs](https://www.mkdocs.org/)"
                 } 
+            },
+            {
+                "choice": "sphinx",
+                "help": {
+                    "description": "Include `docs` folder and `sphinx` tools.",
+                    "more_information": "[Docs](https://www.sphinx-doc.org/en/master/)"
+                } 
             }
         ]
     },

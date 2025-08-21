@@ -41,6 +41,6 @@
         "flake8+black+isort"
     ],
     "open_source_license": ["No license file", "MIT", "BSD-3-Clause"],
-    "docs": ["mkdocs", "none"],
+    "docs": ["mkdocs", "none", "sphinx"],
     "include_code_scaffold": ["Yes", "No"]
 }
