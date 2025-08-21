@@ -69,8 +69,23 @@ for tests_template in tests_path.iterdir():
 # Use the selected documentation package specified in the config,
 # or none if none selected
 docs_path = Path("docs")
-# {% if cookiecutter.docs != "none" %}
+
+
+# {% if cookiecutter.docs == "mkdocs" %}
 packages_to_install += ["{{ cookiecutter.docs }}"]
+# {% endif %}
+
+# {% if cookiecutter.docs == "sphinx" %}
+packages_to_install += ["sphinx-autobuild",
+    "sphinx-autodoc-typehints",
+    "nbsphinx",
+    "myst-parser",
+    "sphinx-copybutton",
+    "sphinx-rtd-theme",
+    "sphinxcontrib-mermaid"]
+# {% endif %}
+
+# {% if cookiecutter.docs != "none" %}
 pip_only_packages += ["{{ cookiecutter.docs }}"]
 docs_subpath = docs_path / "{{ cookiecutter.docs }}"
 for obj in docs_subpath.iterdir():
