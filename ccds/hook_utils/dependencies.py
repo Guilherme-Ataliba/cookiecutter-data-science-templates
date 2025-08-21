@@ -20,8 +20,16 @@ basic = [
     "notebook",
     "numpy",
     "pandas",
-    "scikit-learn",
+    "seaborn",
+    "sphinx-autobuild",
+    "sphinx-autodoc-typehints",
+    "nbsphinx",
+    "myst-parser",
+    "sphinx-copybutton",
+    "sphinx-rtd-theme",
+    "sphinxcontrib-mermaid"
 ]
+
 
 scaffold = [
     "typer",
