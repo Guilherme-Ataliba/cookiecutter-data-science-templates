@@ -35,6 +35,13 @@ scaffold = [
     "typer",
     "loguru",
     "tqdm",
+    "sphinx-autobuild",
+    "sphinx-autodoc-typehints",
+    "nbsphinx",
+    "myst-parser",
+    "sphinx-copybutton",
+    "sphinx-rtd-theme",
+    "sphinxcontrib-mermaid"
 ]
 
 
