@@ -1,4 +1,4 @@
-# Cookiecutter Data Science
+# Cookiecutter Data Science Sphinx
 
 This is a fork from the original [cookiecutter-data-science repo](https://github.com/drivendataorg/cookiecutter-data-science), all credits to them.
 
