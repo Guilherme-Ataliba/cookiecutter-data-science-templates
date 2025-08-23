@@ -19,7 +19,7 @@
 #
 import re
 
-from {{ cookiecutter.python_package }} import __version__ as release
+# from {{ cookiecutter.python_package }} import __version__ as release
 
 # -- Project information -----------------------------------------------------
 
@@ -27,7 +27,7 @@ project = "{{ cookiecutter.python_package }}"
 author = "Guilherme-Ataliba"
 
 # The short X.Y version.
-version = re.match(r"^([0-9]+\.[0-9]+).*", release).group(1)
+# version = re.match(r"^([0-9]+\.[0-9]+).*", release).group(1)
 
 # -- General configuration ---------------------------------------------------
 
@@ -39,9 +39,8 @@ version = re.match(r"^([0-9]+\.[0-9]+).*", release).group(1)
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.autodoc",
+    "autodoc2",
     "sphinx.ext.napoleon",
-    "sphinx_autodoc_typehints",
     "sphinx.ext.doctest",
     "sphinx.ext.todo",
     "sphinx.ext.coverage",
@@ -54,6 +53,12 @@ extensions = [
     "sphinx_copybutton",
     "sphinxcontrib.mermaid"
 ]
+
+autodoc2_packages = [
+    {"path": "../{{ cookiecutter.module_name }}", "module": "{{ cookiecutter.module_name }}"},
+]
+autodoc2_render_plugin = "myst"   # render API pages as MyST Markdown
+autodoc2_docstring_parser_regexes = [(r".*", "myst")]
 
 # enable autosummary plugin (table of contents for modules/classes/class
 # methods)

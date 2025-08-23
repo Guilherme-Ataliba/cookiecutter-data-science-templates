@@ -84,7 +84,7 @@ packages_to_install += ["{{ cookiecutter.docs }}"]
 
 # {% if cookiecutter.docs == "sphinx" %}
 packages_to_install += ["sphinx-autobuild",
-    "sphinx-autodoc-typehints",
+    "sphinx-autodoc2",
     "nbsphinx",
     "myst-parser",
     "sphinx-copybutton",

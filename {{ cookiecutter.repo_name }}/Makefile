@@ -179,3 +179,49 @@ export PRINT_HELP_PYSCRIPT
 
 help:
 	@$(PYTHON_INTERPRETER) -c "${PRINT_HELP_PYSCRIPT}" < $(MAKEFILE_LIST)
+
+
+#################################################################################
+# CONFIG (edit to match your repo)                                              #
+#################################################################################
+# where conf.py is
+SOURCEDIR      ?= docs
+BUILDDIR       ?= $(SOURCEDIR)/_build
+# where sphinx-apidoc writes .rst
+APIDIR         ?= $(SOURCEDIR)/api
+# e.g., mylib => src/mylib
+PACKAGE        ?= {{ cookiecutter.module_name }}
+
+
+# You can override these on the command line, e.g.
+# make SPHINXBUILD="uv run -- sphinx-build" docs-html
+SPHINXBUILD    ?= uv run sphinx-build
+SPHINXAUTOBUILD?= uv run sphinx-autobuild
+SPHINXAPIDOC   ?= uv run sphinx-apidoc
+# ----------------------------------------------------
+
+.PHONY: help docs-html docs-live docs-apidoc docs-api-html docs-clean
+
+help:
+	@echo "Targets:"
+	@echo "  docs-html     Build HTML docs"
+	@echo "  docs-live     Live-reload server (watches docs and src)"
+	@echo "  docs-apidoc   (Re)generate API .rst with sphinx-apidoc"
+	@echo "  docs-api-html Generate API .rst then build HTML"
+	@echo "  docs-clean    Remove build artifacts"
+
+docs-apidoc:
+	$(SPHINXAPIDOC) -f -o "$(APIDIR)" "$(PACKAGE)"
+
+docs-html:
+	$(SPHINXBUILD) -b html $(SOURCEDIR) $(BUILDDIR)/html
+
+docs-api-html: docs-apidoc docs-html
+
+docs-live:
+	$(SPHINXAUTOBUILD) -b html \
+		--port 7000 --open-browser \
+		"$(SOURCEDIR)" "$(BUILDDIR)/html"
+
+docs-clean:
+	@rm -rf "$(BUILDDIR)"
