@@ -88,8 +88,8 @@ packages_to_install += ["sphinx-autobuild",
     "nbsphinx",
     "myst-parser",
     "sphinx-copybutton",
-    "sphinx-rtd-theme",
-    "sphinxcontrib-mermaid"]
+    "sphinxcontrib-mermaid",
+    "shibuya"]
 # {% endif %}
 
 # {% if cookiecutter.docs != "none" %}
