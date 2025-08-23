@@ -89,7 +89,7 @@ packages_to_install += ["sphinx-autobuild",
     "myst-parser",
     "sphinx-copybutton",
     "sphinxcontrib-mermaid",
-    "shibuya"]
+    "pydata-sphinx-theme"]
 # {% endif %}
 
 # {% if cookiecutter.docs != "none" %}
