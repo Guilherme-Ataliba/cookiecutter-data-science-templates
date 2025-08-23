@@ -54,11 +54,20 @@ extensions = [
     "sphinxcontrib.mermaid"
 ]
 
+# Autodoc configuration
 autodoc2_packages = [
     {"path": "../{{ cookiecutter.module_name }}", "module": "{{ cookiecutter.module_name }}"},
 ]
 autodoc2_render_plugin = "myst"   # render API pages as MyST Markdown
 autodoc2_docstring_parser_regexes = [(r".*", "myst")]
+
+# Mermaid configuration
+# So ```mermaid fences are treated as a directive
+myst_fence_as_directive = ["mermaid"]
+
+# (optional but handy for MD features)
+myst_enable_extensions = ["colon_fence"]
+
 
 # enable autosummary plugin (table of contents for modules/classes/class
 # methods)
