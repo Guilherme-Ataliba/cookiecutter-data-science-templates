@@ -38,9 +38,39 @@ src = ["{{ cookiecutter.module_name }}"]
 include = ["pyproject.toml", "{{ cookiecutter.module_name }}/**/*.py"]
 
 [tool.ruff.lint]
-extend-select = ["I"]  # Add import sorting
+extend-select = [
+  "E",   # pycodestyle (errors)
+  "F",   # pyflakes
+  "I",   # isort (you already use this)
+  "UP",  # pyupgrade: modernize syntax
+  "B",   # flake8-bugbear: likely bugs/design issues
+  "N",   # pep8-naming
+  "SIM", # flake8-simplify
+  "C4",  # flake8-comprehensions
+  "C901", # Cyclomatic Analysis
+  "D",   # pydocstyle: docstrings
+]
+
+[tool.ruff.lint.mccabe]
+# Set the maximum allowed complexity before C901 errors are triggered:
+max-complexity = 10
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+# Let Ruff auto-format code blocks inside docstrings (doctest, Markdown, RST)
+docstring-code-format = true
+# Keep code blocks within your overall line-length (or set a fixed int)
+docstring-code-line-length = "dynamic"
 
 [tool.ruff.lint.isort]
 known-first-party = ["{{ cookiecutter.module_name }}"]
 force-sort-within-sections = true
+
+# Per-file relaxations 
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*" = ["D"]            # don’t require full docstrings in tests
+"scripts/**/*" = ["D"]          # skip docstrings in ad-hoc scripts
+"config.py" = ["D"]          # skip linting in config
 {% endif %}
