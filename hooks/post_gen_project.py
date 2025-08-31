@@ -25,6 +25,7 @@ packages_to_install = copy(packages)
 packages_to_install += [
     "seaborn",
     "sympy",
+    "pytest-cov"
 ]
 
 # {% if cookiecutter.dataset_storage.s3 %}

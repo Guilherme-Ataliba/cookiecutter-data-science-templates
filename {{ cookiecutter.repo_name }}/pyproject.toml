@@ -50,6 +50,7 @@ extend-select = [
   "C901", # Cyclomatic Analysis
   "D",   # pydocstyle: docstrings
 ]
+ignore = ["N806", "N803"]
 
 [tool.ruff.lint.mccabe]
 # Set the maximum allowed complexity before C901 errors are triggered:
