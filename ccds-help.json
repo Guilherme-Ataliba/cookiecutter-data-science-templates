@@ -75,4 +75,36 @@
             }
         ]
     },
+    {
+        "field": "template",
+        "help": {
+            "description": "Choose the type of project template to use.",
+            "more_information": ""
+        },
+        "choices": [
+            {
+                "choice": "crawler",
+                "help": {
+                    "description": "Web scraping and crawling project template.",
+                    "more_information": ""
+                },
+                "subfields": [
+                    {
+                        "field": "httpx",
+                        "help": {
+                            "description": "Use httpx for HTTP requests and web scraping.",
+                            "more_information": "[httpx documentation](https://www.python-httpx.org/)"
+                        }
+                    },
+                    {
+                        "field": "playwright",
+                        "help": {
+                            "description": "Use playwright for browser automation and JavaScript-heavy sites.",
+                            "more_information": "[playwright documentation](https://playwright.dev/python/)"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
 ]

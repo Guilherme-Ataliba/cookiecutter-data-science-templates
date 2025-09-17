@@ -11,5 +11,13 @@
     ],
     "linting_and_formatting": [
         "ruff"
+    ],
+    "template": [
+        {
+            "crawler": [
+                "httpx",
+                "playwright"
+            ]
+        }
     ]
 }
