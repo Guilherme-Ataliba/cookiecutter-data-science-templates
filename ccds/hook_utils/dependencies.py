@@ -2,7 +2,6 @@ import tomlkit
 
 packages = [
     "pip",
-    "python-dotenv",
 ]
 
 flake8_black_isort = [
