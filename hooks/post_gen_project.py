@@ -19,9 +19,6 @@ packages_to_install = copy(packages)
 
 # Custom Packages
 packages_to_install += [
-    "seaborn",
-    "sympy",
-    "pytest-cov"
 ]
 
 # Template-specific packages and conditional logic
@@ -107,9 +104,7 @@ packages_to_install += flake8_black_isort
 # {% endif %}
 
 # track packages that are not available through conda
-pip_only_packages = [
-    "python-dotenv",
-]
+pip_only_packages = []
 
 #
 #  POST-GENERATION FUNCTIONS
