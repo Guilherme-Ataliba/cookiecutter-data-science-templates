@@ -25,9 +25,9 @@ packages_to_install += [
 ]
 
 # Template-specific packages
-{% if cookiecutter.template.crawler == "httpx" %}
+{% if cookiecutter.crawler_type == "httpx" %}
 packages_to_install += ["httpx"]
-{% elif cookiecutter.template.crawler == "playwright" %}
+{% elif cookiecutter.crawler_type == "playwright" %}
 packages_to_install += ["playwright"]
 {% endif %}
 
@@ -69,7 +69,7 @@ pyproject_text = Path("pyproject.toml").read_text()
 Path("pyproject.toml").write_text(pyproject_text.replace(r"\u0027", "'"))
 
 # Post-installation steps for specific templates
-{% if cookiecutter.template.crawler == "playwright" %}
+{% if cookiecutter.crawler_type == "playwright" %}
 # Install playwright browser binaries
 import subprocess
 import sys

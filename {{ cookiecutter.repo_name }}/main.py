@@ -1,4 +1,4 @@
-{% if cookiecutter.template.crawler == "httpx" %}
+{% if cookiecutter.crawler_type == "httpx" %}
 import httpx
 import asyncio
 
@@ -14,7 +14,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-{% elif cookiecutter.template.crawler == "playwright" %}
+{% elif cookiecutter.crawler_type == "playwright" %}
 import asyncio
 from playwright.async_api import async_playwright
 

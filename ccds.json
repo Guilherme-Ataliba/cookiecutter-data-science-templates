@@ -13,11 +13,10 @@
         "ruff"
     ],
     "template": [
-        {
-            "crawler": [
-                "httpx",
-                "playwright"
-            ]
-        }
+        "crawler"
+    ],
+    "crawler_type": [
+        "httpx",
+        "playwright"
     ]
 }
