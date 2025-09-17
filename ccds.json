@@ -1,6 +1,7 @@
 {
     "project_name": "project_name",
     "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "author_name": "Your name (or your organization/company/team)",
     "python_version_number": "3.13",
     "environment_manager": [
         "uv"
@@ -10,5 +11,6 @@
     ],
     "linting_and_formatting": [
         "ruff"
-    ]
+    ],
+    "open_source_license": "No license file"
 }

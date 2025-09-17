@@ -14,6 +14,13 @@
         }
     },
     {
+        "field": "author_name",
+        "help": {
+            "description": "Your name (or your organization/company/team).",
+            "more_information": ""
+        }
+    },
+    {
         "field": "python_version_number",
         "help": {
             "description": "The version of Python that the project will use.",
@@ -67,5 +74,12 @@
                 } 
             }
         ]
+    },
+    {
+        "field": "open_source_license",
+        "help": {
+            "description": "License for the project.",
+            "more_information": ""
+        }
     }
 ]
