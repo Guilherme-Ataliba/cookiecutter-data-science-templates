@@ -15,9 +15,5 @@
     "project_type": [
         "none",
         "crawler"
-    ],
-    "crawler_type": [
-        "httpx",
-        "aiohttp"
     ]
 }

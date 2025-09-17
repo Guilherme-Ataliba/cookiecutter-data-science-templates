@@ -24,12 +24,78 @@ packages_to_install += [
     "pytest-cov"
 ]
 
-# Template-specific packages
-{% if cookiecutter.project_type == "crawler" and cookiecutter.crawler_type == "httpx" %}
-packages_to_install += ["httpx"]
-{% elif cookiecutter.project_type == "crawler" and cookiecutter.crawler_type == "aiohttp" %}
-packages_to_install += ["aiohttp"]
-{% endif %}
+# Template-specific packages and conditional logic
+if "{{ cookiecutter.project_type }}" == "crawler":
+    # Prompt for crawler type only when project_type is crawler
+    import sys
+    print("\nSelect crawler type:")
+    print("1 - httpx")
+    print("2 - aiohttp")
+    
+    while True:
+        try:
+            choice = input("Choose from [1, 2] (1): ").strip()
+            if not choice:
+                choice = "1"
+            
+            if choice == "1":
+                crawler_type = "httpx"
+                packages_to_install += ["httpx"]
+                break
+            elif choice == "2":
+                crawler_type = "aiohttp"
+                packages_to_install += ["aiohttp"]
+                break
+            else:
+                print("Please choose 1 or 2")
+        except KeyboardInterrupt:
+            sys.exit(1)
+    
+    # Create the appropriate main.py file
+    main_py_content = ""
+    if crawler_type == "httpx":
+        main_py_content = '''import httpx
+import asyncio
+
+
+async def main():
+    """Main function for httpx-based web scraping."""
+    async with httpx.AsyncClient() as client:
+        # Example: Make a GET request
+        response = await client.get("https://httpbin.org/get")
+        print(f"Status: {response.status_code}")
+        print(f"Response: {response.json()}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+'''
+    elif crawler_type == "aiohttp":
+        main_py_content = '''import asyncio
+import aiohttp
+
+
+async def main():
+    """Main function for aiohttp-based web scraping."""
+    async with aiohttp.ClientSession() as session:
+        # Example: Make a GET request
+        async with session.get("https://httpbin.org/get") as response:
+            data = await response.json()
+            print(f"Status: {response.status}")
+            print(f"Response: {data}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+'''
+    
+    # Write the main.py file
+    with open("main.py", "w") as f:
+        f.write(main_py_content)
+else:
+    # Remove main.py for non-crawler projects
+    if Path("main.py").exists():
+        Path("main.py").unlink()
 
 # {% if cookiecutter.linting_and_formatting == "ruff" %}
 packages_to_install += ruff

@@ -97,28 +97,5 @@
                 }
             }
         ]
-    },
-    {
-        "field": "crawler_type",
-        "help": {
-            "description": "Choose the type of web crawler to use.",
-            "more_information": ""
-        },
-        "choices": [
-            {
-                "choice": "httpx",
-                "help": {
-                    "description": "Use httpx for HTTP requests and web scraping.",
-                    "more_information": "[httpx documentation](https://www.python-httpx.org/)"
-                }
-            },
-            {
-                "choice": "aiohttp",
-                "help": {
-                    "description": "Use aiohttp for asynchronous HTTP requests and web scraping.",
-                    "more_information": "[aiohttp documentation](https://docs.aiohttp.org/)"
-                }
-            }
-        ]
     }
 ]
