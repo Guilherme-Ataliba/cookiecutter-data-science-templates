@@ -12,7 +12,7 @@
     "linting_and_formatting": [
         "ruff"
     ],
-    "template": [
+    "project_type": [
         "crawler"
     ],
     "crawler_type": [

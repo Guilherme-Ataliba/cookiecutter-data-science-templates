@@ -76,7 +76,7 @@
         ]
     },
     {
-        "field": "template",
+        "field": "project_type",
         "help": {
             "description": "Choose the type of project template to use.",
             "more_information": ""
