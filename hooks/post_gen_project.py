@@ -25,10 +25,10 @@ packages_to_install += [
 ]
 
 # Template-specific packages
-{% if cookiecutter.crawler_type == "httpx" %}
+{% if cookiecutter.project_type == "crawler" and cookiecutter.crawler_type == "httpx" %}
 packages_to_install += ["httpx"]
-{% elif cookiecutter.crawler_type == "playwright" %}
-packages_to_install += ["playwright"]
+{% elif cookiecutter.project_type == "crawler" and cookiecutter.crawler_type == "aiohttp" %}
+packages_to_install += ["aiohttp"]
 {% endif %}
 
 # {% if cookiecutter.linting_and_formatting == "ruff" %}
@@ -69,9 +69,4 @@ pyproject_text = Path("pyproject.toml").read_text()
 Path("pyproject.toml").write_text(pyproject_text.replace(r"\u0027", "'"))
 
 # Post-installation steps for specific templates
-{% if cookiecutter.crawler_type == "playwright" %}
-# Install playwright browser binaries
-import subprocess
-import sys
-subprocess.run([sys.executable, "-m", "playwright", "install"], check=True)
-{% endif %}
+# No special post-installation steps needed for current templates

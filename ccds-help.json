@@ -83,6 +83,13 @@
         },
         "choices": [
             {
+                "choice": "none",
+                "help": {
+                    "description": "No specific project template - basic project structure only.",
+                    "more_information": ""
+                }
+            },
+            {
                 "choice": "crawler",
                 "help": {
                     "description": "Web scraping and crawling project template.",
@@ -106,10 +113,10 @@
                 }
             },
             {
-                "choice": "playwright",
+                "choice": "aiohttp",
                 "help": {
-                    "description": "Use playwright for browser automation and JavaScript-heavy sites.",
-                    "more_information": "[playwright documentation](https://playwright.dev/python/)"
+                    "description": "Use aiohttp for asynchronous HTTP requests and web scraping.",
+                    "more_information": "[aiohttp documentation](https://docs.aiohttp.org/)"
                 }
             }
         ]

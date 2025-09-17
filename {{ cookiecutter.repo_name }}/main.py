@@ -1,4 +1,4 @@
-{% if cookiecutter.crawler_type == "httpx" %}
+{% if cookiecutter.project_type == "crawler" and cookiecutter.crawler_type == "httpx" %}
 import httpx
 import asyncio
 
@@ -14,25 +14,24 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-{% elif cookiecutter.crawler_type == "playwright" %}
+{% elif cookiecutter.project_type == "crawler" and cookiecutter.crawler_type == "aiohttp" %}
 import asyncio
-from playwright.async_api import async_playwright
+import aiohttp
 
 
 async def main():
-    """Main function for playwright-based web scraping."""
-    async with async_playwright() as p:
-        browser = await p.chromium.launch()
-        page = await browser.new_page()
-        
-        # Example: Navigate to a page
-        await page.goto("https://example.com")
-        title = await page.title()
-        print(f"Page title: {title}")
-        
-        await browser.close()
+    """Main function for aiohttp-based web scraping."""
+    async with aiohttp.ClientSession() as session:
+        # Example: Make a GET request
+        async with session.get("https://httpbin.org/get") as response:
+            data = await response.json()
+            print(f"Status: {response.status}")
+            print(f"Response: {data}")
 
 
 if __name__ == "__main__":
     asyncio.run(main())
+{% elif cookiecutter.project_type == "none" %}
+# Basic Python project - no specific template
+print("Hello, World!")
 {% endif %}

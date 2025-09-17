@@ -13,10 +13,11 @@
         "ruff"
     ],
     "project_type": [
+        "none",
         "crawler"
     ],
     "crawler_type": [
         "httpx",
-        "playwright"
+        "aiohttp"
     ]
 }
