@@ -11,6 +11,5 @@
     ],
     "linting_and_formatting": [
         "ruff"
-    ],
-    "open_source_license": "No license file"
+    ]
 }

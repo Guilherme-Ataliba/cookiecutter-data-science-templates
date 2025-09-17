@@ -8,10 +8,8 @@ version = "0.0.1"
 authors = [
   { name = {{ cookiecutter.author_name|tojson }} },
 ]
-{% if cookiecutter.open_source_license != 'No license file' %}license = { file = "LICENSE" }{% endif %}
 classifiers = [
     "Programming Language :: Python :: 3",
-    {% if cookiecutter.open_source_license == 'MIT' %}"License :: OSI Approved :: MIT License"{% elif cookiecutter.open_source_license == 'BSD-3-Clause' %}"License :: OSI Approved :: BSD License"{% endif %}
 ]
 {% if cookiecutter.linting_and_formatting == 'flake8+black+isort' %}
 [tool.black]

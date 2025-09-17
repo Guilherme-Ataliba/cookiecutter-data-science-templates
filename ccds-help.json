@@ -75,11 +75,4 @@
             }
         ]
     },
-    {
-        "field": "open_source_license",
-        "help": {
-            "description": "License for the project.",
-            "more_information": ""
-        }
-    }
 ]
