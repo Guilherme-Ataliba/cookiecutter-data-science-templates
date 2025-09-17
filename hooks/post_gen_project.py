@@ -26,8 +26,9 @@ packages_to_install += [
 
 # {% if cookiecutter.linting_and_formatting == "ruff" %}
 packages_to_install += ruff
-# Remove setup.cfg
-Path("setup.cfg").unlink()
+# Remove setup.cfg if it exists
+if Path("setup.cfg").exists():
+    Path("setup.cfg").unlink()
 # {% elif cookiecutter.linting_and_formatting == "flake8+black+isort" %}
 packages_to_install += flake8_black_isort
 # {% endif %}
